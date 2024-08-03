@@ -1,0 +1,1443 @@
+/** Defined variables */
+
+:root {
+  --main-color: #19c8fa;
+  --dark-color: #1f2021;
+  --transparent: #19c9fa7e;
+  --dark-trasparent: #1f202181;
+  --text-paragraph: #777;
+  --section-padding: 100px;
+}
+ 
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Initialization */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*? Container sizing */
+
+/* Very small */
+
+@media (max-width: 767px) {
+  .container {
+    max-width: 500px !important;
+  }
+}
+
+/* Small */
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 750px !important;
+  }
+}
+
+/* Medium */
+
+@media (min-width: 992px) {
+  .container {
+    max-width: 970px !important;
+  }
+}
+
+/* Large */
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px !important;
+  }
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Initialization */
+
+/*! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Components  */
+.menu {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  transform: translateY(0%);
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 1;
+}
+
+.main-heading {
+  text-align: center;
+}
+
+.main-heading h2 {
+  font-weight: normal;
+  font-size: 40px;
+  position: relative;
+  margin-bottom: 70px;
+  text-transform: uppercase;
+}
+
+.main-heading h2::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -30px;
+  width: 120px;
+  height: 2px;
+  background-color: var(--dark-color);
+}
+
+.main-heading h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -38px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid var(--dark-color);
+  background-color: white;
+}
+
+.main-heading p {
+  width: 550px;
+  max-width: 100%;
+  margin: 0 auto 100px;
+  line-height: 2;
+  color: var(--text-paragraph);
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 900px;
+  display: flex;
+  justify-content: space-evenly;
+  overflow: hidden;
+}
+
+.overlay li {
+  background-color: #ffffff24;
+  width: 70px;
+  height: 100%;
+}
+
+/*! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Components  */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Header section */
+header {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgb(0 0 0 / 40%);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  min-height: 97px;
+  padding: 0 10px;
+}
+
+header .container::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  background-color: #a5a5a5;
+  bottom: 0;
+  width: calc(100% - 30px);
+  left: 15px;
+}
+
+header .logo img {
+  height: 70px;
+}
+
+header nav .toggle-menu {
+  color: white;
+  font-size: 22px;
+}
+
+header nav .toggle-menu:hover {
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  header nav .toggle-menu {
+    display: none;
+  }
+}
+
+header nav {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+header nav ul {
+  display: flex;
+  flex-direction: row;
+  transition: 0.5s;
+}
+
+@media (max-width: 767px) {
+  header nav ul {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    transform: translateY(-100%);
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+header nav ul li a {
+  padding: 40px 10px;
+  display: block;
+  color: white;
+  font-size: 14px;
+  transition: 0.3s;
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 767px) {
+  header nav ul li a {
+    padding: 15px;
+  }
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+  color: var(--main-color);
+  border-bottom: 1px solid var(--main-color);
+}
+
+header nav .form {
+  width: 40px;
+  height: 30px;
+  position: relative;
+  margin-left: 30px;
+  border-left: 1px solid white;
+}
+
+header nav .form i {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  transform: translateY(-50%);
+  top: 50%;
+  right: 0;
+}
+
+header nav .form i {
+  cursor: pointer;
+}
+
+header nav .form .search-form {
+  padding: 20px;
+  border-radius: 3px;
+  background-color: rgba(153, 153, 153, 0.698);
+  position: absolute;
+  top: 0%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 500px;
+  z-index: -1;
+  right: 0px;
+  opacity: 0%;
+  height: 60px;
+  transition: 0.3s;
+}
+
+header nav .form .search-form.active {
+  opacity: 100%;
+  top: 250%;
+}
+
+header nav .form .search-form input {
+  padding: 0 10px;
+  display: inline;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  transition: 0.5s;
+  background-color: var(--dark-color);
+  color: white;
+}
+
+header nav .form .search-form input:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+header nav .form .search-form button {
+  padding: 0 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 40px;
+  background-color: var(--transparent);
+  color: white;
+  border: none;
+  transition: 0.3s;
+}
+
+header nav .form .search-form button:hover {
+  background-color: var(--main-color);
+  cursor: pointer;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Header section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Landing section */
+.landing {
+  min-height: 100vh;
+  background-color: var(--dark-color);
+  /* background-image: url(../images/background1.jpg); */
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+
+.landing .text {
+  position: absolute;
+  top: 50%;
+  padding: 40px;
+  background-color: var(--transparent);
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s, left 0.5s, transform 0.5s;
+}
+
+@media (min-width: 768px) {
+  .landing .text {
+    width: 80%;
+  }
+}
+
+@media (min-width: 992px) {
+  .landing .text {
+    width: 60%;
+  }
+}
+
+@media (min-width: 1500px) {
+  .landing .text {
+    width: 40%;
+  }
+}
+
+.landing .text.active {
+  left: 0;
+  transform: translateX(0%) translateY(-50%);
+  opacity: 1;
+}
+
+.landing .text.left-side {
+  left: 0;
+  transform: translateX(-100%) translateY(-50%);
+  opacity: 0;
+}
+
+.landing .text.right-side {
+  left: 100%;
+  transform: translateX(0%) translateY(-50%);
+  opacity: 0;
+}
+
+.landing .text .content {
+  max-width: 500px;
+}
+
+@media (max-width: 767px) {
+  .landing .text {
+    width: 100%;
+  }
+
+  .landing .text .content {
+    max-width: 100%;
+  }
+}
+
+.landing .text .content h2 {
+  font-size: 40px;
+  font-weight: normal;
+  line-height: 2;
+}
+
+.landing .text .content p {
+  font-size: 15px;
+  line-height: 2;
+}
+
+.landing .change-background {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ddd;
+}
+
+@media (max-width: 767px) {
+  .landing .change-background {
+    top: 80%;
+  }
+}
+
+.landing .fa-angle-left {
+  left: 30px;
+}
+
+.landing .fa-angle-right {
+  right: 30px;
+}
+
+.landing .arrow:hover {
+  cursor: pointer;
+}
+
+.landing .bullets {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 30px;
+  display: flex;
+  gap: 5px;
+}
+
+.landing .bullets li {
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.landing .bullets li.active {
+  background-color: var(--main-color);
+  border-color: var(--main-color);
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Landing section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Services section */
+.services {
+  position: relative;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  height: fit-content;
+}
+
+.services .services-container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 768px) {
+  .services .services-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    column-gap: 40px;
+    row-gap: 60px;
+  }
+}
+
+.services .service-box {
+  display: flex;
+}
+
+.services .service-box i {
+  margin-right: 30px;
+}
+
+@media (max-width: 767px) {
+  .services .service-box {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .services .service-box i {
+    margin: 0 0 30px;
+  }
+}
+
+.services .service-box h3 {
+  margin-bottom: 30px;
+  color: var(--main-color);
+}
+
+.services .service-box p {
+  line-height: 2;
+  color: var(--text-paragraph);
+}
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Services section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Design section */
+.design {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  height: 600px;
+  position: relative;
+  background-color: var(--dark-color);
+  background-image: url("../images/background2.jpg");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+}
+
+.design::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.design .image,
+.design .text {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+
+.design .image {
+  text-align: center;
+}
+
+@media (max-width: 991px) {
+  .design .image {
+    display: none;
+  }
+}
+
+.design .text {
+  color: white;
+  padding: 50px;
+  background-color: var(--transparent);
+}
+
+.design .text h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+.design .text ul il {
+  padding: 15px 0;
+}
+
+.design .text ul il::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f108";
+  font-weight: 900;
+  margin-right: 20px;
+  position: relative;
+  top: 1px;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Design section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Portfolio section */
+.portfolio {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.portfolio .shuffle {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio .shuffle li {
+  padding: 10px;
+  transition: 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.portfolio .shuffle li:hover {
+  cursor: pointer;
+  border: 1px solid var(--main-color);
+}
+
+.portfolio .shuffle li.active {
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+  color: white;
+}
+
+.portfolio .images-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  justify-content: center;
+}
+
+.portfolio .images-container .box {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio .images-container .box:hover .caption {
+  bottom: 0;
+}
+
+.portfolio .images-container .box:hover img {
+  opacity: 70%;
+  transform: rotate(3deg) scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .portfolio .images-container .box {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 1199px) {
+  .portfolio .images-container .box {
+    flex-basis: 25%;
+  }
+}
+
+.portfolio .images-container .box img {
+  max-width: 100%;
+  transition: 0.3s;
+}
+
+.portfolio .images-container .box .caption {
+  position: absolute;
+  left: 0;
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+  transition: 0.3s;
+  bottom: -100%;
+}
+
+.portfolio .images-container .box .caption h2 {
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.portfolio .images-container .box .caption p {
+  color: var(--text-paragraph);
+}
+
+.portfolio .more {
+  background-color: var(--main-color);
+  color: white;
+  padding: 15px 20px;
+  display: block;
+  width: fit-content;
+  margin: 30px auto;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Portfolio section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Video section */
+.video {
+  position: relative;
+}
+
+.video::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 40%);
+}
+
+.video video {
+  width: 100%;
+}
+
+.video .text {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 50px;
+  background-color: var(--transparent);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.video .text h2 {
+  margin: 0 0 30px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.video .text p {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .video .text {
+    padding: 25px;
+  }
+
+  .video .text h2 {
+    margin: 0 0 15px;
+  }
+
+  .video .text p {
+    margin-bottom: 10px;
+  }
+}
+
+.video .text button {
+  background-color: var(--dark-trasparent);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  text-transform: uppercase;
+}
+
+.video .text button:hover {
+  cursor: pointer;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Video section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of About section */
+.about {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  text-align: center;
+}
+
+.about img {
+  max-width: 100%;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of About section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Stats section */
+.stats {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-image: url(../images/background1.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+.stats::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.stats .container {
+  position: relative;
+  color: white;
+  background-color: var(--transparent);
+  display: flex;
+  text-align: center;
+  padding: 50px;
+  flex-wrap: wrap;
+}
+
+.stats .container .box {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .stats .container .box {
+    margin-top: 30px;
+    flex-basis: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .stats .container .box {
+    margin-top: 30px;
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .stats .container .box {
+    flex-basis: 25%;
+  }
+}
+.stats .box i {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--dark-color);
+  border-radius: 50%;
+  margin: 0 auto 30px;
+}
+
+.stats .box .number {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+.stats .box p {
+  font-size: 14px;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Stats section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Skills section */
+.our-skills {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.our-skills .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 992px) {
+  .our-skills .container > div {
+    flex-basis: 45%;
+  }
+
+  .our-skills .container {
+    justify-content: space-between;
+  }
+}
+
+.our-skills .container > div > h3 {
+  margin: 0 0 30px;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.our-skills .container > div > p {
+  color: var(--text-paragraph);
+  line-height: 2;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.our-skills .testimonials {
+  position: relative;
+  margin-bottom: 60px;
+}
+
+.our-skills .testimonials .content {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.our-skills .testimonials .content img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+
+@media (max-width: 767px) {
+  .our-skills .testimonials .content {
+    flex-direction: column;
+    text-align: center;
+    margin: 0 30px 30px;
+  }
+
+  .our-skills .testimonials .content img {
+    margin: 0 auto 20px;
+  }
+}
+
+.our-skills .testimonials .content .text {
+  line-height: 1.8;
+  border-bottom: 1px solid #ccc;
+}
+
+.our-skills .testimonials .content .text p {
+  text-align: right;
+  color: var(--text-paragraph);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.our-skills .testimonials .bullets {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.our-skills .testimonials .bullets li {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+}
+
+.our-skills .testimonials .bullets li.active {
+  background-color: var(--main-color);
+  border: 1px solid var(--main-color);
+}
+
+.our-skills .skills {
+  max-width: 100%;
+  margin: 0 20px 0;
+}
+
+.our-skills .progress-holder {
+  margin-bottom: 40px;
+}
+
+.our-skills .progress-holder h4 {
+  margin-bottom: 15px;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.our-skills .progress-holder .prog {
+  background-color: #dedadc;
+  height: 30px;
+}
+
+.our-skills .progress-holder .prog span {
+  display: block;
+  background-color: var(--main-color);
+  height: 100%;
+  position: relative;
+}
+
+.our-skills .progress-holder .prog span::before {
+  content: attr(data-progress);
+  position: absolute;
+  background-color: var(--dark-color);
+  color: white;
+  top: -40px;
+  right: -18px;
+  padding: 4px 0;
+  width: 40px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.our-skills .progress-holder .prog span::after {
+  content: "";
+  position: absolute;
+  border-style: solid;
+  border-width: 8px;
+  border-color: black transparent transparent transparent;
+  right: -8px;
+  top: -15px;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Skills section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Quote section */
+.quote {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-image: url("../images/background3.jpg");
+  background-size: cover;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.quote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.quote .container {
+  position: relative;
+}
+
+.quote .container q {
+  font-size: 30px;
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* .quote .container q::before {
+  content: "->";
+}
+
+.quote .container q::after {
+  content: "<-"
+} */
+
+.quote .container span {
+  font-size: 14px;
+  color: #ddd;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Quote section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Pricing section */
+.pricing {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.pricing .plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.pricing .plans .plan {
+  background-color: #fcfcfc;
+  text-align: center;
+}
+
+.pricing .plans .plan .head::before {
+  content: "";
+  border-top: 1px solid var(--main-color);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pricing .plans .plan .head::after {
+  content: "";
+  border-bottom: 1px solid var(--main-color);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.pricing .plans .plan .head {
+  padding: 40px 0;
+  position: relative;
+}
+
+.pricing .plans .plan .head h3 {
+  font-size: 20px;
+  font-weight: normal;
+  text-transform: uppercase;
+  margin: 30px 0;
+}
+
+.pricing .plans .plan .head span {
+  font-size: 60px;
+  font-weight: bold;
+  position: relative;
+}
+
+.pricing .plans .plan .head span.dollar::before {
+  content: "$";
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  top: 14px;
+  left: -20px;
+}
+
+.pricing .plans .plan .head span::after {
+  content: "/Month";
+  font-size: 14px;
+  font-weight: bold;
+  position: absolute;
+  right: -60px;
+  top: 50px;
+}
+
+.pricing .plans .plan .head span.euro::before {
+  content: "e";
+  font-size: 25px;
+  font-weight: bold;
+  position: absolute;
+  top: 14px;
+  left: -20px;
+}
+
+.pricing .plans .plan ul li {
+  padding: 25px 0;
+  position: relative;
+}
+
+.pricing .plans .plan ul li::after {
+  content: "";
+  border-bottom: 1px solid var(--main-color);
+  width: 40%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.pricing .plans .plan ul li:last-of-type::after {
+  content: "";
+  border-bottom: 1px solid var(--main-color);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(0);
+}
+
+.pricing .plans .plan .foot {
+  margin: 30px auto;
+  width: 50%;
+  padding: 13px 0;
+  border: 1px solid var(--main-color);
+}
+
+.pricing .contact-text {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.pricing .contact-link {
+  display: block;
+  width: fit-content;
+  margin: auto;
+  background-color: var(--main-color);
+  color: white;
+  text-align: center;
+  padding: 15px 40px;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Pricing section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Subscribe section */
+.subscription {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  background-image: url(../images/background3.jpg);
+  background-size: cover;
+  text-align: center;
+  position: relative;
+  color: white;
+}
+
+.subscription::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.subscription .container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 50px;
+  align-items: center;
+  padding: 0 20px;
+}
+
+@media (max-width: 991px) {
+  .subscription .container {
+    flex-direction: column;
+  }
+}
+
+.subscription .container form {
+  display: flex;
+  border: 1px solid white;
+  text-align: left;
+  position: relative;
+  width: 700px;
+  max-width: 100%;
+}
+
+.subscription .container form i {
+  width: 20px;
+  margin: auto 10px;
+  text-align: center;
+}
+
+.subscription .container form .input-text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50px;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.subscription .container form .email-field {
+  padding: 15px 10px;
+  width: 100%;
+  max-width: 100%;
+  background-color: #1f202100;
+  border: none;
+  color: white;
+  position: relative;
+  caret-color: var(--main-color);
+  transition: 0.5s;
+}
+
+.fade-text {
+  top: 100% !important;
+  opacity: 0 !important;
+}
+
+.subscription .container form .subscribe-btn {
+  background-color: var(--main-color);
+  border: none;
+  padding: 15px 15px;
+  text-transform: uppercase;
+  margin: 0;
+  color: white;
+}
+
+.subscription .container p {
+  text-align: left;
+}
+
+@media (max-width: 991px) {
+  .subscription .container p {
+    text-align: center;
+  }
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Subscribe section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Contact section */
+.contact {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.contact .container .content {
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+@media (max-width: 991px) {
+  .contact .container .content {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+.contact .form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  max-width: 50%;
+  min-width: 50%;
+}
+
+@media (max-width: 991px) {
+  .contact .form {
+    max-width: 100%;
+    min-width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+.contact .form input {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+
+.contact .form input::placeholder {
+  color: black;
+  text-transform: uppercase;
+}
+
+.contact .form textarea {
+  padding: 20px;
+  height: 200px;
+  border: 1px solid #ddd;
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.contact .form textarea::placeholder {
+  color: black;
+  text-transform: uppercase;
+}
+
+.contact .form button {
+  align-self: flex-end;
+  width: 150px;
+  padding: 15px 0px;
+  border: none;
+  background-color: var(--main-color);
+  color: white;
+  text-transform: uppercase;
+}
+
+@media (max-width: 991px) {
+  .contact .form button {
+    align-self: center;
+  }
+}
+
+.contact .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 80px;
+}
+
+@media (max-width: 991px) {
+  .contact .info {
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 30px;
+  }
+}
+
+.contact .info h4 {
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.contact .info p {
+  color: var(--text-paragraph);
+  margin-bottom: 10px;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Contact section */
+
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Start of Footer section */
+footer {
+  padding-top: calc(var(--section-padding) / 2);
+  padding-bottom: calc(var(--section-padding) / 2);
+  background-image: url(../images/background3.jpg);
+  background-size: cover;
+  position: relative;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+footer .container {
+  color: white;
+  text-align: center;
+}
+
+footer img {
+  width: 100px;
+}
+
+footer .social {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+footer .social h3 {
+  font-weight: normal;
+  text-transform: uppercase;
+  position: relative;
+  padding: 20px;
+}
+
+/* footer .social hr {
+  width: 250px;
+  margin: 15px auto;
+} */
+
+footer .social h3::after {
+  content: "";
+  width: 250px;
+  border: 1px solid white;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+footer .social .social-networks {
+  padding: 20px;
+}
+
+footer .social .social-networks i {
+  margin-right: 10px;
+}
+
+footer p .blue {
+  color: var(--main-color);
+  font-weight: bold;
+}
+/** >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End of Footer section */
+
+/*! >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> End Of File <<<<<<<<<<<<<<<<<<<<<<<<<<<<<< */
